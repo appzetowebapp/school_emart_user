@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 /// All settings are documented inline for easy customization.
 class AppConfig {
   // ==================== APP IDENTITY ====================
-  static const String appName = 'Buy Together';
+  static const String appName = 'School E-Mart';
   static const String appLogoPath = 'assets/images/logo.png';
 
   // ==================== COLORS & THEME ====================
@@ -32,12 +32,13 @@ class AppConfig {
   static const Color exitDialogBackgroundDark = Color(0xFF1E1E1E); // Dark Gray
   static const Color exitDialogTitleColorDark = Color(0xFFFFFFFF); // White
   static const Color exitDialogTextColorDark = Color(0xFFB3B3B3); // Light Gray
-  static const Color exitDialogCancelColorDark =
-      Color(0xFFB3B3B3); // Light Gray
+  static const Color exitDialogCancelColorDark = Color(
+    0xFFB3B3B3,
+  ); // Light Gray
 
   // Exit Dialog - Common
   static const Color exitDialogButtonColor = primaryColor; // Exit button color
-  static const Color exitDialogButtonChangedColor = Colors.red; 
+  static const Color exitDialogButtonChangedColor = Colors.red;
   static const double exitDialogBorderRadius = 20.0; // Dialog corner radius
 
   // ==================== STATUS BAR COLORS ====================
@@ -57,7 +58,7 @@ class AppConfig {
 
   // ==================== WEB URL CONFIGURATION ====================
   // ⚠️ CHANGE THIS URL TO YOUR WEB APPLICATION ⚠️
-  static const String webUrl = 'https://www.buytogetherindia.com';
+  static const String webUrl = 'https://smartedukidz.com/user/login';
 
   static const String notificationIcon =
       '@mipmap/ic_launcher'; // Default app launcher icon
@@ -78,10 +79,10 @@ class AppConfig {
 
   // ==================== API CONFIGURATION ====================
   // Base URL for API endpoints (update this with your actual API base URL)
-  static const String apiBaseUrl = 'https://www.buytogetherindia.com/api';
+  static const String apiBaseUrl = 'https://smartedukidz.com/api/';
   static const String fcmTokenUrl =
-      'https://www.buytogetherindia.com/api/fcm/register';
-//https://api.Mobasket.com/api/notification/user/token
+      'https://smartedukidz.com/api/v1/notifications/tokens';
+  //https://api.Mobasket.com/api/notification/user/token
   // ==================== SPLASH SCREEN ====================
   static const int splashDurationSeconds = 2;
 

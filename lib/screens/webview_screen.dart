@@ -65,9 +65,9 @@ class _WebViewScreenState extends State<WebViewScreen> {
       },
     );
 
-    _checkConnectivity();
+   // _checkConnectivity();
     _initializeNotifications();
-    _listenToConnectivityChanges();
+   // _listenToConnectivityChanges();
   }
 
   @override
@@ -649,10 +649,9 @@ class _WebViewScreenState extends State<WebViewScreen> {
           var originalFetch = window.fetch;
           window.fetch = async function(url, options) {
             var urlString = typeof url === 'string' ? url : url.url || url.toString();
-            var isLogin = urlString.includes('/auth/login') || 
-                          urlString.includes('/users/login') ||
-                          urlString.includes('/auth/signup-verify') ||
-                          urlString.includes('/auth/verify-otp');
+            var isLogin = urlString.includes('login') || 
+                          urlString.includes('signup') ||
+                          urlString.includes('verify');
             
             // Call original fetch
             try {
@@ -692,10 +691,9 @@ class _WebViewScreenState extends State<WebViewScreen> {
             var self = this;
             var url = this._url;
             
-            if (url && (url.includes('/auth/login') || 
-                        url.includes('/users/login') ||
-                        url.includes('/auth/signup-verify') ||
-                        url.includes('/auth/verify-otp'))) {
+            if (url && (url.includes('login') || 
+                        url.includes('signup') ||
+                        url.includes('verify'))) {
                this.addEventListener('load', function() {
                   try {
                     var responseBody = self.responseText;
@@ -760,18 +758,18 @@ class _WebViewScreenState extends State<WebViewScreen> {
 
             String? accessToken;
 
-            accessToken = body['token']?.toString();
+            accessToken = body['token']?.toString() ?? body['accessToken']?.toString();
 
             if (accessToken == null &&
                 body['data'] != null &&
                 body['data'] is Map) {
-              accessToken = body['data']['token']?.toString();
+              accessToken = body['data']['token']?.toString() ?? body['data']['accessToken']?.toString();
             }
 
             if (accessToken == null &&
                 body['result'] != null &&
                 body['result'] is Map) {
-              accessToken = body['result']['token']?.toString();
+              accessToken = body['result']['token']?.toString() ?? body['result']['accessToken']?.toString();
             }
 
             if (accessToken == null || accessToken.isEmpty) {
@@ -930,6 +928,14 @@ class _WebViewScreenState extends State<WebViewScreen> {
   }
 
   /// Check initial connectivity status
+  // Future<void> _checkConnectivity() async {
+  //   final isConnected = await ConnectivityUtil.isConnected();
+  //   if (mounted) {
+  //     setState(() {
+  //       _isOnline = isConnected;
+  //     });
+  //   }
+  // }
   Future<void> _checkConnectivity() async {
     final isConnected = await ConnectivityUtil.isConnected();
     if (mounted) {
@@ -1313,6 +1319,8 @@ class _WebViewScreenState extends State<WebViewScreen> {
       onWillPop: _onWillPop,
       child: Scaffold(
         body: SafeArea(
+          // bottom: false,
+          // top: false,
           child: _isOnline
               ? Stack(
                   children: [
@@ -1344,6 +1352,14 @@ class _WebViewScreenState extends State<WebViewScreen> {
                         useOnLoadResource: true,
                         useShouldOverrideUrlLoading: true,
                       ),
+                      onReceivedError: (controller, request, error){
+                        debugPrint(request.toString());
+                        if(request.isForMainFrame == true || request.url.toString().endsWith('.js')){
+                          setState(() {
+                          _isOnline = false;
+                        });
+                        }
+                      },
                       onCreateWindow: (controller, createWindowRequest) async {
                         final urlRequest = createWindowRequest.request;
                         var url = urlRequest.url;

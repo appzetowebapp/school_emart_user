@@ -1,4 +1,4 @@
-package com.buytogether.app
+package com.schoolemart.user
 
 import android.Manifest
 import android.content.pm.PackageManager

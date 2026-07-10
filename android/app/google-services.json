@@ -1,22 +1,40 @@
 {
   "project_info": {
-    "project_number": "694115785084",
-    "firebase_url": "https://but-together-default-rtdb.firebaseio.com",
-    "project_id": "but-together",
-    "storage_bucket": "but-together.firebasestorage.app"
+    "project_number": "245704085725",
+    "project_id": "school-e-mart",
+    "storage_bucket": "school-e-mart.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:694115785084:android:ef949032f30607943eacf9",
+        "mobilesdk_app_id": "1:245704085725:android:6e092a08b8e5c87c238b34",
         "android_client_info": {
-          "package_name": "com.buytogether.app"
+          "package_name": "com.schoolemart.school"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDVL0NhTf7P1_G0PyuOg5PhPQaEuVBvCKo"
+          "current_key": "AIzaSyCr3E-w4exocvxOlJk2VpYrk_OkwO02PYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245704085725:android:43c98da3f39a5675238b34",
+        "android_client_info": {
+          "package_name": "com.schoolemart.user"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr3E-w4exocvxOlJk2VpYrk_OkwO02PYk"
         }
       ],
       "services": {
