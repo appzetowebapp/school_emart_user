@@ -45,7 +45,7 @@ class ApiService {
       
       final requestBody = {
         'token': token,
-        'platform': platformValue,
+        'platform': 'app',
       };
 
       // Validate token

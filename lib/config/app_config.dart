@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 /// All settings are documented inline for easy customization.
 class AppConfig {
   // ==================== APP IDENTITY ====================
-  static const String appName = 'School E-Mart';
+  static const String appName = 'School E Mart';
   static const String appLogoPath = 'assets/images/logo.png';
 
   // ==================== COLORS & THEME ====================
@@ -58,7 +58,7 @@ class AppConfig {
 
   // ==================== WEB URL CONFIGURATION ====================
   // ⚠️ CHANGE THIS URL TO YOUR WEB APPLICATION ⚠️
-  static const String webUrl = 'https://smartedukidz.com/user/login';
+  static const String webUrl = 'https://schoolemart.com/user';
 
   static const String notificationIcon =
       '@mipmap/ic_launcher'; // Default app launcher icon
@@ -79,9 +79,9 @@ class AppConfig {
 
   // ==================== API CONFIGURATION ====================
   // Base URL for API endpoints (update this with your actual API base URL)
-  static const String apiBaseUrl = 'https://smartedukidz.com/api/';
+  static const String apiBaseUrl = 'https://schoolemart.com/api/';
   static const String fcmTokenUrl =
-      'https://smartedukidz.com/api/v1/notifications/tokens';
+      'https://schoolemart.com/api/v1/notifications/tokens';
   //https://api.Mobasket.com/api/notification/user/token
   // ==================== SPLASH SCREEN ====================
   static const int splashDurationSeconds = 2;
